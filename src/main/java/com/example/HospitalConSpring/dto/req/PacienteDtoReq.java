@@ -1,4 +1,4 @@
-package com.example.HospitalConSpring.dto;
+package com.example.HospitalConSpring.dto.req;
 
 import com.example.HospitalConSpring.entity.Analisis;
 import com.example.HospitalConSpring.entity.Cama;
@@ -22,12 +22,6 @@ public record PacienteDtoReq(
         @NonNull
          String telefono,
         @NonNull
-         String direccion,
-        @NonNull
-         String tipoSangre,
-
-         List<Analisis>analisis,
-
-         List<Turno> turnos,
-         Cama camaActual) {
+         String tipoSangre
+        ) {
 }
