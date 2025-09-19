@@ -4,24 +4,20 @@ import com.example.HospitalConSpring.entity.Analisis;
 import com.example.HospitalConSpring.entity.Cama;
 import com.example.HospitalConSpring.entity.Turno;
 import io.micrometer.common.lang.NonNull;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
-import java.util.Date;
-import java.util.List;
+import java.time.LocalDate;
+
 
 public record PacienteDtoReq(
-        @NonNull
-         String nombre,
-        @NonNull
-         String apellido,
-        @NonNull
-         String dni,
-        @NonNull
-         Date fechaNacimiento,
-        @NonNull
-         String email,
-        @NonNull
-         String telefono,
-        @NonNull
-         String tipoSangre
+        @NotBlank String nombre,
+        @NotBlank String apellido,
+        @NotBlank String dni,
+        @NotNull LocalDate fechaNacimiento,
+        @Email @NotBlank String email,
+        @NotBlank String telefono,
+        @NotBlank String tipoSangre
         ) {
 }

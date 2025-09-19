@@ -1,5 +1,6 @@
 package com.example.HospitalConSpring.dto.req;
 
+import com.example.HospitalConSpring.entity.Doctores;
 import com.example.HospitalConSpring.entity.Paciente;
 import com.example.HospitalConSpring.enumm.EstadoTurno;
 import jakarta.validation.constraints.NotNull;
@@ -13,6 +14,7 @@ public record TurnoDtoReq(@NotNull
                           Time hora,
                           @NotNull
                           Paciente paciente,
+                          Doctores doctor,
                           @NotNull
                           EstadoTurno estado) {
 }
