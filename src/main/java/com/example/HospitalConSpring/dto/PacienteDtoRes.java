@@ -1,18 +1,16 @@
 package com.example.HospitalConSpring.dto;
 
-import com.example.HospitalConSpring.entity.Analisis;
-import com.example.HospitalConSpring.entity.Cama;
-import com.example.HospitalConSpring.entity.Turno;
 import lombok.Builder;
 
-import java.util.Date;
-import java.util.List;
+import java.time.LocalDate;
+
+
 @Builder
 public record PacienteDtoRes(
                              String nombre,
                              String apellido,
                              String dni,
-                             Date fechaNacimiento,
+                             LocalDate fechaNacimiento,
                              String email,
                              String telefono,
 

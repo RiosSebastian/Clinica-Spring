@@ -1,10 +1,11 @@
 package com.example.HospitalConSpring.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -18,8 +19,9 @@ public class Paciente {
     private Long id;
     private String nombre;
     private String apellido;
+    private String password;
     private String dni;
-    private Date fechaNacimiento;
+    private   LocalDate fechaNacimiento;
     private String email;
     private String telefono;
     private String direccion;

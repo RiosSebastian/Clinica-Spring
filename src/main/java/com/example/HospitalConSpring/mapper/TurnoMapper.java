@@ -5,7 +5,7 @@ import com.example.HospitalConSpring.dto.req.TurnoDtoReq;
 import com.example.HospitalConSpring.entity.Turno;
 
 public class TurnoMapper {
-    public static TurnoDtoRes toDto(Turno turno){
+    public TurnoDtoRes toDto(Turno turno){
         return TurnoDtoRes.builder()
                 .estado(turno.getEstado())
                 .paciente(turno.getPaciente())

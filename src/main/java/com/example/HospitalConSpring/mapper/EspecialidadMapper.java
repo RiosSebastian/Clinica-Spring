@@ -5,7 +5,7 @@ import com.example.HospitalConSpring.dto.req.EspecialidadDtoReq;
 import com.example.HospitalConSpring.entity.Especialidad;
 
 public class EspecialidadMapper {
-    public static EspecialidadDtoRes toDto(Especialidad especialidad){
+    public EspecialidadDtoRes toDto(Especialidad especialidad){
         return EspecialidadDtoRes.builder()
                 .descripcion(especialidad.getDescripcion())
                 .doctores(especialidad.getDoctores())
