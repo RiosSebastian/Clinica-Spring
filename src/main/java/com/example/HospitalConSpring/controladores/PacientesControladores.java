@@ -37,7 +37,6 @@ public class PacientesControladores {
     // Crear paciente
     @PostMapping("api/nuevopaciente")
     public ResponseEntity<Paciente> create(@RequestBody Paciente paciente, @RequestHeader HttpHeaders headers) {
-        System.out.println(headers.get("usuario-headers"));
 
         // Verificar si el paciente ya tiene ID (lo cual indica que ya existe)
         if (paciente.getId() != null) {
