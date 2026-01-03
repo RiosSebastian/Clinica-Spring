@@ -2,22 +2,37 @@ package com.example.HospitalConSpring.entity;
 
 import com.example.HospitalConSpring.enumm.EstadoCama;
 import com.example.HospitalConSpring.enumm.GravedadInternacion;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 
 @Entity
-@Builder
+@Table(name = "cama")
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@JsonIgnoreProperties({"paciente"})
 public class Cama {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String numero;
-    private EstadoCama estado;   // (DISPONIBLE, OCUPADA, MANTENIMIENTO)
-    private GravedadInternacion gravedad; // (LEVE, MODERADA, GRAVE)
-    private Paciente paciente;   // null si está disponible
+
+    @Enumerated(EnumType.STRING)
+    private EstadoCama estado;
+
+    @Enumerated(EnumType.STRING)
+    private GravedadInternacion gravedad;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "paciente_id")
+    @JsonIgnoreProperties({"camaActual", "turnos", "analisis"})
+    private Paciente paciente;
 }

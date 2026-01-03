@@ -16,7 +16,7 @@ public interface DoctoresServis {
 
     // Buscar doctor por diferentes atributos
     DoctoresDtoRes getByNombreAndApellido(String nombre, String apellido);
-    DoctoresDtoRes getByEspecialidad(String Especialidad);
+    DoctoresDtoRes findByespecialidad(String Especialidad);
 
 
 }

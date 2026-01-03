@@ -9,52 +9,59 @@ import com.example.HospitalConSpring.mapper.EspecialidadMapper;
 import com.example.HospitalConSpring.mapper.PacienteMapper;
 import com.example.HospitalConSpring.repository.EspecialidadRepository;
 import org.springframework.data.crossstore.ChangeSetPersister;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class EspecialidadesServisImpl implements EspecialidadService {
 
-    private EspecialidadMapper especialidadMapper;
+    private final EspecialidadMapper especialidadMapper;
+    private final EspecialidadRepository especialidadRepository;
 
-    private EspecialidadRepository especialidadRepository;
+    public EspecialidadesServisImpl(EspecialidadMapper especialidadMapper,
+                                    EspecialidadRepository especialidadRepository) {
+        this.especialidadMapper = especialidadMapper;
+        this.especialidadRepository = especialidadRepository;
+    }
+
     @Override
     public EspecialidadDtoRes createEspecialidad(EspecialidadDtoReq especialidadDtoReq) {
-        Especialidad especialidad  = PacienteMapper.toPaciente(especialidadDtoReq);
+        Especialidad especialidad  = EspecialidadMapper.toEspecialidad(especialidadDtoReq);
         especialidad = especialidadRepository.save(especialidad);
         return especialidadMapper.toDto(especialidad);
     }
 
     @Override
     public EspecialidadDtoRes updateEspecialidad(Long id, EspecialidadDtoReq especialidadDtoReq) throws ChangeSetPersister.NotFoundException {
-        Especialidad existingEspecialidad= especialidadRepository.findById(id)
-                .orElseThrow(() -> new ChangeSetPersister.NotFoundException());
+        Especialidad existing = especialidadRepository.findById(id)
+                .orElseThrow(ChangeSetPersister.NotFoundException::new);
 
-        existingEspecialidad.setNombre(especialidadDtoReq.nombre());
-        existingEspecialidad.getDescripcion(especialidadDtoReq.descripcion());
-        existingEspecialidad.getDoctores(especialidadDtoReq.doctore());
+        existing.setNombre(especialidadDtoReq.nombre());
+        existing.setDescripcion(especialidadDtoReq.descripcion());
+        existing.setDoctores(especialidadDtoReq.doctore());
 
-
-        existingEspecialidad = especialidadRepository.save(existingEspecialidad);
-        return especialidadMapper.toDto(existingEspecialidad);
+        existing = especialidadRepository.save(existing);
+        return especialidadMapper.toDto(existing);
     }
 
     @Override
     public void deleteEspecialidad(Long id) throws ChangeSetPersister.NotFoundException {
         Especialidad especialidad = especialidadRepository.findById(id)
-                .orElseThrow(() -> new ChangeSetPersister.NotFoundException());
+                .orElseThrow(ChangeSetPersister.NotFoundException::new);
         especialidadRepository.delete(especialidad);
     }
 
     @Override
     public EspecialidadDtoRes getEspecialidadById(Long id) {
-        return null;
+        Especialidad e = especialidadRepository.findById(id).orElse(null);
+        return e == null ? null : especialidadMapper.toDto(e);
     }
 
     @Override
     public List<EspecialidadDtoRes> getAllEspecialidades() {
-        List<Especialidad> users = especialidadRepository.findAll();
-        return users.stream()
+        return especialidadRepository.findAll().stream()
                 .map(especialidadMapper::toDto)
                 .collect(Collectors.toList());
     }

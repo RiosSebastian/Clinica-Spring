@@ -26,7 +26,7 @@ public class DoctoresServisImpl implements DoctoresServis {
     }
 
     @Override
-    public DoctoresDtoRes getByEspecialidad(String Especialidad) {
+    public DoctoresDtoRes findByespecialidad(String Especialidad) {
         return null;
     }
 }

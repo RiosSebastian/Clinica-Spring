@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.1.1</version>
+		<version>4.0.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
@@ -14,7 +14,7 @@
 	<name>HospitalConSpring</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
-		<java.version>17</java.version>
+		<java.version>21</java.version>
 	</properties>
 	<dependencies>
 
@@ -43,21 +43,17 @@
 		<!-- JWT -->
 		<dependency>
 			<groupId>io.jsonwebtoken</groupId>
-			<artifactId>jjwt</artifactId>
-			<version>0.9.1</version>
-		</dependency>
-
-		<dependency>
-			<groupId>io.jsonwebtoken</groupId>
 			<artifactId>jjwt-api</artifactId>
 			<version>0.11.5</version>
 		</dependency>
+
 		<dependency>
 			<groupId>io.jsonwebtoken</groupId>
 			<artifactId>jjwt-impl</artifactId>
 			<version>0.11.5</version>
 			<scope>runtime</scope>
 		</dependency>
+
 		<dependency>
 			<groupId>io.jsonwebtoken</groupId>
 			<artifactId>jjwt-jackson</artifactId>
@@ -65,11 +61,6 @@
 			<scope>runtime</scope>
 		</dependency>
 
-		<dependency>
-			<groupId>org.webjars</groupId>
-			<artifactId>jquery</artifactId>
-			<version>3.4.1</version>
-		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -108,8 +99,10 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>3.4.1</version>
 			</plugin>
 		</plugins>
 	</build>
+
 
 </project>

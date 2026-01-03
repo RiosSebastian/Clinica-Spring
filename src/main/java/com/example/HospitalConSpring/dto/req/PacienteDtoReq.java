@@ -14,6 +14,7 @@ import java.time.LocalDate;
 public record PacienteDtoReq(
         @NotBlank String nombre,
         @NotBlank String apellido,
+        @NotBlank String password,
         @NotBlank String dni,
         @NotNull LocalDate fechaNacimiento,
         @Email @NotBlank String email,

@@ -1,5 +1,7 @@
 package com.example.HospitalConSpring.controladores;
 
+import com.example.HospitalConSpring.Servis.DoctoresServis;
+import com.example.HospitalConSpring.Servis.ServisPaciente;
 import com.example.HospitalConSpring.entity.Doctores;
 import com.example.HospitalConSpring.repository.DoctoresRepository;
 import org.slf4j.Logger;
@@ -17,6 +19,8 @@ public class DoctoresControladores {
 //atributo
 
     private DoctoresRepository doctoresRepository;
+
+    private DoctoresServis doctoresServis;
     private final Logger log = LoggerFactory.getLogger(DoctoresControladores.class);
 
 
