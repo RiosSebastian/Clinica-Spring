@@ -1,6 +1,9 @@
 🏥 Sistema de Gestión Hospitalaria – Spring Boot API
 
 API REST desarrollada con Spring Boot para la gestión integral de un sistema hospitalario. Permite administrar pacientes, doctores, especialidades, turnos médicos, camas y análisis clínicos, incorporando seguridad con JWT y arquitectura en capas.
+
+--------------------------------------------------------------------------
+
 🚀 Tecnologías Utilizadas
 
 Java 17+
@@ -23,6 +26,8 @@ H2 / MySQL (configurable)
 
 Maven
 
+---------------------------------------------------------------------------
+
 📐 Arquitectura del Proyecto
 
 El proyecto sigue una arquitectura en capas: Controller: expone endpoints REST
@@ -36,6 +41,8 @@ DTOs: separación entre API y modelo
 Mappers: conversión Entity ↔ DTO
 
 Security: autenticación con JWT
+
+-------------------------------------------------------------------------
 
 🧩 Módulos del Sistema 👤 Pacientes
 
